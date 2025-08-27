@@ -11,4 +11,5 @@ sentencepiece>=0.1.99
 protobuf>=4.21.0
 accelerate>=0.20.0
 bitsandbytes>=0.41.0
+tiktoken
 # pygraphviz  # Commented out - causes build issues on HF Spaces
