@@ -6,10 +6,9 @@ networkx>=3.0
 matplotlib>=3.7.0
 numpy>=1.24.0
 pandas>=2.0.0
-Pillow>=10.0.0
 gitpython>=3.1.0
 sentencepiece>=0.1.99
 protobuf>=4.21.0
 accelerate>=0.20.0
 bitsandbytes>=0.41.0
-pygraphviz>=1.11
+# pygraphviz  # Commented out - causes build issues on HF Spaces

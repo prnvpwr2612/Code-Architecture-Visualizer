@@ -28,6 +28,21 @@ chart_creator = ChartCreator()
 helpers = ProjectHelpers()
 print("✅ All modules initialized successfully!")
 
+# At the top of your app.py
+try:
+    import pygraphviz as pgv
+    PYGRAPHVIZ_AVAILABLE = True
+except ImportError:
+    PYGRAPHVIZ_AVAILABLE = False
+    print("⚠️ PyGraphviz not available, using NetworkX + Matplotlib fallback")
+
+# In your dependency visualization class
+def create_visualization(self, dependency_result):
+    if PYGRAPHVIZ_AVAILABLE:
+        return self._create_pygraphviz_visualization(dependency_result)
+    else:
+        return self._create_networkx_visualization(dependency_result)
+
 def analyze_codebase(file_upload, github_url, features_selected, progress=gr.Progress()):
     """Main analysis function combining all notebook functionality"""
     try:
